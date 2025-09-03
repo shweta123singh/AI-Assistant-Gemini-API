@@ -1,0 +1,72 @@
+.App {
+  text-align: center;
+  height:100vh;
+  width: 100%;
+  background-color: #282c34;
+  display:flex;
+  flex-direction: row;
+}
+.box{
+  width: 50%;
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  align-items: center;
+  gap:50px;
+}
+
+.profile-pic{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 5px 5px 10px royalblue;
+  overflow: hidden;
+  animation:myAnimation 2s infinite;
+}
+@keyframes myAnimation {
+  0%{box-shadow: 5px 5px 10px royalblue;}
+  33%{box-shadow: 5px 5px 10px white;}
+  66%{box-shadow: 5px 5px 10px green;}
+  100%{box-shadow: 5px 5px 10px royalblue;}
+  
+}
+textarea{
+  width: 400px;
+  height: 200px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px white;
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+}
+textarea::-webkit-scrollbar{
+  display: none;
+
+}
+button{
+  width: 400px;
+  border: none;
+  outline:none ;
+  background-color: royalblue;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button:hover{
+  box-shadow: 5px 5px 10px white;
+}
+.pic{
+  width: 150px;
+  height: 150px;
+
+}
+.label{
+  color: white;
+  font-size: 20px;
+}
