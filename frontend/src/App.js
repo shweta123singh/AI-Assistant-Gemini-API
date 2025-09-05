@@ -6,13 +6,13 @@ function App() {
   const [question,setQuestion]=useState('');
   const [response,setResponse]=useState('');
   const submitHandler=(e)=>{
-    e.preventDefault()
+    e.preventDefault();
     console.log(question)
-    axios.post('https://gemini-app-two-puce.vercel.app/getResponse',{
+    axios.post('http://localhost:3000/getResponse',{
       question:question
     })
     .then(res=>{
-      console.log(res.data.response);
+      console.log("Full API Response", res.data);
       setResponse(res.data.response);
     })
     .catch(err=>{
@@ -34,16 +34,15 @@ function App() {
         <p className='label'>Question</p>
         <textarea onChange={(e)=>{setQuestion(e.target.value)}}/>
         <button onClick={submitHandler}>Send</button> 
-
-
       </div>
+
       <div className="box">
         <div className='profile-pic'>
           <img className='pic' alt='profile-pic' src={require('../src/assets/gemini.png')}/>
-
          </div>
+         
          <p className='label'>Gemini</p>
-        <textarea vaue={response}/>
+        <textarea value={response}readOnly/>
         <button onClick={speakHandler}>Speak</button> 
 
       </div>
