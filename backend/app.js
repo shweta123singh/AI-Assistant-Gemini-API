@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY  // set in Render environment variables
+  apiKey: process.env.GEMINI_API_KEY  // set in Render environment variables
 });
 
 // Test route
