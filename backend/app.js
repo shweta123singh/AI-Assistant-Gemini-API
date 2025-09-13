@@ -1,38 +1,25 @@
-const express = require('express');
-const cors = require('cors');
-const { OpenAI } = require('openai'); // or Gemini SDK
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
 
 const app = express();
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
-const client = new OpenAI({
-  apiKey: process.env.GEMINI_API_KEY  // set in Render environment variables
-});
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-// Test route
-app.get('/', (req, res) => {
-  res.send('Backend is running 🚀');
-});
-
-// AI route
-app.post('/', async (req, res) => {
+// POST route
+app.post("/getResponse", async (req, res) => {
   const { question } = req.body;
-
-  try {
-    const completion = await client.chat.completions.create({
-      model: 'gpt-4o-mini',  // or Gemini model
-      messages: [{ role: 'user', content: question }]
-    });
-
-    const answer = completion.choices[0].message.content;
-    res.json({ response: answer });
-
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ response: 'Error fetching answer from AI.' });
-  }
+  const result = await model.generateContent(question);
+  const responseText = result.response.text();
+  res.json({ response: responseText });
 });
+
+app.get("/", (req, res) => res.send("Backend is running 🚀"));
 
 module.exports = app;
+
 
