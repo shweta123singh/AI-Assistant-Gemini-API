@@ -8,7 +8,7 @@ function App() {
   const submitHandler=(e)=>{
     e.preventDefault();
     console.log(question)
-    axios.post('https://ai-assistant-frontend-hycu.onrender.com',{
+    axios.post('http://localhost:3000/getResponse',{
       question:question
     })
     .then(res=>{
