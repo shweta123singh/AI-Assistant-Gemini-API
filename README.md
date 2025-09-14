@@ -6,7 +6,7 @@ A **full-stack AI-powered assistant** built using the **MERN stack** and integra
 [Click here to view the Live Demo](https://ai-assistant-frontend-hycu.onrender.com/)
 
 ## GitHub Repository
-[View Code on GitHub](https://github.com/yourusername/AI-Assistant-Gemini-API)
+[View Code on GitHub](https://github.com/shweta123singh/AI-Assistant-Gemini-API.git)
 
 ## Features
 - Real-time AI-powered conversational assistant using **Google Gemini API**.
@@ -26,4 +26,4 @@ A **full-stack AI-powered assistant** built using the **MERN stack** and integra
 ## Installation & Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/AI-Assistant-Gemini-API.git
+   git clone https://github.com/shweta123singh/AI-Assistant-Gemini-API.git
